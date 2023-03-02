@@ -44,7 +44,9 @@ namespace Mission9_celder20.Infrastructure
                 tb.InnerHtml.Append(i.ToString());
 
                 final.InnerHtml.AppendHtml(tb);
-                final.InnerHtml.AppendHtml(" ");
+                final.InnerHtml.AppendHtml("&nbsp");
+
+
             }
 
             tho.Content.AppendHtml(final.InnerHtml);
