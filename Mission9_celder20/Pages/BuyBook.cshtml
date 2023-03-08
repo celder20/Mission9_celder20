@@ -7,13 +7,13 @@
 
 @*BOOTSTRAP ADDED #1: Table in the "cart" section of the website
     has a "table-hover" feature added so that when a user has their mouse over a certain row on the table, it darkens so they know that is the row they are on. Along with this, for each of the "th" tags
-    I added a color and made it so they are all uppercase*@
+    I added a color and made it so they are all uppercase. And lastly, I added I tags to italicize all of the "th" tags*@
 <table class="table table-bordered table-striped table-hover table-responsive">@*  *@
     <thead>
-        <th class="text-primary text-uppercase">Book</th>
-        <th class="text-primary text-uppercase">Quantity</th>
-        <th class="text-primary text-uppercase">Price</th>
-        <th class="text-primary text-uppercase">Subtotal</th>
+        <th class="text-primary text-uppercase"><i>Book</i></th>
+        <th class="text-primary text-uppercase"><i>Quantity</i></th>
+        <th class="text-primary text-uppercase"><i>Price</i></th>
+        <th class="text-primary text-uppercase"><i>Subtotal</i></th>
     </thead>
     <tbody>
         @foreach(var i in Model.cart.Items)
