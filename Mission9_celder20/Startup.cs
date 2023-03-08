@@ -34,6 +34,12 @@ namespace Mission9_celder20
            });
 
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,12 +52,20 @@ namespace Mission9_celder20
 
             //Corresponds with wwwroot file
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("typepage", "{bookType}/Page{pageNum}", new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("Paging", "Page{pageNum}", new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("type", "{bookType}", new { Controller = "Home", action = "Index", pageNum = 1 });
+
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
         }
     }

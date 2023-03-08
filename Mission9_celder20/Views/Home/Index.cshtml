@@ -1,31 +1,19 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-
-@model BookViewModel
+﻿@model BookViewModel
 
 <h1>My Bookstore</h1>
 
 @foreach (Book b in Model.Books)
 {
-    //A for loop that is pulling the entries from the database and displaying them on the website
-    <h3>@b.Title</h3>
-    
-    <ul>
-        <li>Author: @b.Author</li>
-        <li>Publisher: @b.Publisher</li>
-        <li>ISBN: @b.Isbn</li>
-        <li>Classification Type: @b.Classification</li>
-        <li>Category of Book: @b.Category</li>
-        <li>Page Count: @b.PageCount</li>
-        <li>Price: $@b.Price</li>
-    </ul>
-
-    <br />
+    <partial name="BookSummary" model="b" />
 
 }
 
-<div page-blah="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
-     page-class="btn" page-class-normal="btn-outline-dark"
-     page-class-selected="btn-primary" class="btn-group pull-right m-1">
+<div page-blah="@Model.PageInfo" page-action="Index" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+     page-classes-enabled="true" class="btn-group pull-right m-1">
 </div>
+
+<br />
+
+@*BOOTSTRAP ADDED #2: Added in a social media link with my facebook using an "i" tag and other features of a button*@
+<footer>Contact me on Facebook through the link below if you want more suggestions for great books!</footer>
+<a href="https://www.facebook.com/connor.elder.98" class="btn btn-outline-success"><i class="fab fa-facebook-f"></i>My Facebook Profile</a>
