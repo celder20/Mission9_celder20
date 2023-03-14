@@ -8,10 +8,12 @@
 
 <form method="post" asp-controller="Buy" asp-action="Checkout">
 
+    @*Validate that the forms are being entered correctly*@
     <div asp-validation-summary="All" class="text-danger"></div>
 
     <h4>Ship To</h4>
 
+    @*The forms that allow users to enter their contact info so users can receive their ordered books*@
     <div class="form-group">
         <label asp-for="Name">Name: </label><input asp-for="Name" class="form-control" />
     </div>

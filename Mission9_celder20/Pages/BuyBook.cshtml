@@ -16,6 +16,7 @@
         <th class="text-primary text-uppercase"><i>Subtotal</i></th>
     </thead>
     <tbody>
+        @*For loop that updates the title, quantity of item, price, and subtotal as a user adds each book to their cart*@
         @foreach(var i in Model.cart.Items)
         {
             <tr>
@@ -35,6 +36,7 @@
         }
     </tbody>
     <tfoot>
+        @*Calls the CalculateTotal method so the user can know their total*@
         <tr>
             <td colspan="3">Total: </td>
             <td>@Model.cart.CalculateTotal().ToString("c")</td>
@@ -45,7 +47,7 @@
 <div>
     @*Button that allows a user to return back to add more books to the cart*@
     <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
-    @*Button that allows a user to checkout*@
+    @*Button that allows a user to checkout and order the books they have in the cart*@
     <a class="btn btn-primary" asp-controller="Buy" asp-action="Checkout" >Checkout</a>
 </div>
 
