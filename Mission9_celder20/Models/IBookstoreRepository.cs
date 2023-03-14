@@ -8,5 +8,7 @@ namespace Mission9_celder20.Models
     public interface IBookstoreRepository
     {
         IQueryable<Book> Books { get; }
+
+        void SaveBuy(Book book);
     }
 }

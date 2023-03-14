@@ -15,5 +15,10 @@ namespace Mission9_celder20.Models
         }
 
         public IQueryable<Book> Books => context.Books;
+
+        public void SaveBuy(Book book)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

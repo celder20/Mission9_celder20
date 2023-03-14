@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace Mission9_celder20.Models
         public List<CartLineItem> Items { get; set; } = new List<CartLineItem>();
 
         //This method is for adding an item to the cart, which is then displayed in a table with the book name, price, and quantity
-        public void AddItem (Book bookName, int qty)
+        public virtual void AddItem (Book bookName, int qty)
         {
             CartLineItem line = Items
                 .Where(b => b.Book.BookId == bookName.BookId)
@@ -29,6 +30,17 @@ namespace Mission9_celder20.Models
                 line.Quantity += qty;
             }
         }
+        
+        public virtual void RemoveItem (Book bookName)
+        {
+            Items.RemoveAll(x => x.Book.BookId == bookName.BookId);
+        }
+
+        public virtual void ClearCart()
+        {
+            Items.Clear();
+        }
+
         //This calculates the total price for all the books added to a users cart and displays it at the bottom of the table
         public double CalculateTotal()
         {
@@ -41,6 +53,7 @@ namespace Mission9_celder20.Models
 
     public class CartLineItem
     {
+        [Key]
         public int LineId { get; set; }
         public Book Book { get; set; }
         public int Quantity { get; set; }

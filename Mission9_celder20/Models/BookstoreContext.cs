@@ -20,6 +20,7 @@ namespace Mission9_celder20.Models
         }
 
         public DbSet<Book> Books { get; set; }
+        public DbSet<BuyInfo> Buys { get; set; }
 
     }
 }
